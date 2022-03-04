@@ -204,7 +204,7 @@ def get_phone_info():
         cc = input(mesgdcrt.CommandMessage(
             "Enter your country code (Without +): "))
         cc = format_phone(cc)
-        if country_codes.get(cc, False):
+        if not country_codes.get(cc, False):
             mesgdcrt.WarningMessage(
                 "The country code ({cc}) that you have entered"
                 " is invalid or unsupported".format(cc=cc))
@@ -265,12 +265,12 @@ def workernode(mode, cc, target, count, delay, max_threads):
     input(mesgdcrt.CommandMessage(
         "Press [CTRL+Z] to suspend the bomber or [ENTER] to resume it"))
 
-    # if len(APIProvider.api_providers) == 0:
-    #     mesgdcrt.FailureMessage("Your country/target is not supported yet")
-    #     mesgdcrt.GeneralMessage("Feel free to reach out to us")
-    #     input(mesgdcrt.CommandMessage("Press [ENTER] to exit"))
-    #     bann_text()
-        # sys.exit()
+    if len(APIProvider.api_providers) == 0:
+        mesgdcrt.FailureMessage("Your country/target is not supported yet")
+        mesgdcrt.GeneralMessage("Feel free to reach out to us")
+        input(mesgdcrt.CommandMessage("Press [ENTER] to exit"))
+        bann_text()
+        sys.exit()
 
     success, failed = 0, 0
     while success < count:
