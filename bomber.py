@@ -265,11 +265,11 @@ def workernode(mode, cc, target, count, delay, max_threads):
     input(mesgdcrt.CommandMessage(
         "Press [CTRL+Z] to suspend the bomber or [ENTER] to resume it"))
 
-    if len(APIProvider.api_providers) == 0:
-        # mesgdcrt.FailureMessage("Your country/target is not supported yet")
-        # mesgdcrt.GeneralMessage("Feel free to reach out to us")
-        # input(mesgdcrt.CommandMessage("Press [ENTER] to exit"))
-        # bann_text()
+    # if len(APIProvider.api_providers) == 0:
+    #     mesgdcrt.FailureMessage("Your country/target is not supported yet")
+    #     mesgdcrt.GeneralMessage("Feel free to reach out to us")
+    #     input(mesgdcrt.CommandMessage("Press [ENTER] to exit"))
+    #     bann_text()
         # sys.exit()
 
     success, failed = 0, 0
